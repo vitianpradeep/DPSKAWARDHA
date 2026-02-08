@@ -1,0 +1,19 @@
+FLIPBOOK WEBSITE - FOLDER STRUCTURE
+===================================
+
+./
+├── DEPLOYMENT.md
+├── FOLDER-STRUCTURE.txt
+├── README.md
+├── USAGE-GUIDE.md
+css/
+  ├── style.css
+  ├── viewer.css
+├── index.html
+js/
+  ├── app.js
+  ├── magazines-data.js
+  ├── viewer.js
+magazines/
+  ├── README.txt
+├── viewer.html

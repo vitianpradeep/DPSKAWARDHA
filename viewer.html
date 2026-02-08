@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Viewer - Flipbook</title>
+    <link rel="stylesheet" href="css/viewer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="viewer-header">
+        <div class="header-left">
+            <a href="index.html" class="back-btn">← Back to Library</a>
+            <h1 id="magazineTitle">Magazine Title</h1>
+        </div>
+        <div class="header-right">
+            <button id="shareBtn" class="btn-icon" title="Share">📤</button>
+            <button id="fullscreenBtn" class="btn-icon" title="Fullscreen">⛶</button>
+        </div>
+    </div>
+
+    <div class="viewer-container">
+        <div class="flipbook-wrapper">
+            <div id="flipbook">
+                <!-- Pages will be loaded dynamically -->
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="prevBtn" class="control-btn">◀ Previous</button>
+            <span id="pageIndicator" class="page-indicator">Page 1 of 1</span>
+            <button id="nextBtn" class="control-btn">Next ▶</button>
+        </div>
+
+        <div class="zoom-controls">
+            <button id="zoomOutBtn" class="zoom-btn">-</button>
+            <span id="zoomLevel">100%</span>
+            <button id="zoomInBtn" class="zoom-btn">+</button>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Share This Magazine</h2>
+            <div class="share-link-container">
+                <input type="text" id="shareLink" readonly>
+                <button id="copyLinkBtn">Copy Link</button>
+            </div>
+            <p class="share-text">Share this link with anyone to let them view this magazine</p>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Loading magazine...</p>
+    </div>
+
+    <script src="js/viewer.js"></script>
+</body>
+</html>

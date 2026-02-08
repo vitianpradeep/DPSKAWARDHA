@@ -1,27 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>School Digital Flipbook</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Magazine Library - Interactive Flipbooks</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>📘 School Digital Magazine</h1>
-        <p>Upload PDF and View as Flipbook</p>
+        <div class="container">
+            <div class="header-content">
+                <h1>📚 School Magazine Library</h1>
+                <p class="tagline">Explore Our Interactive Digital Magazines</p>
+            </div>
+        </div>
     </header>
 
-    <input type="file" id="uploadPDF" accept="application/pdf" />
+    <main class="container">
+        <section class="hero">
+            <h2>Welcome to Our Digital Magazine Collection</h2>
+            <p>Browse through our collection of school magazines in an interactive flipbook format</p>
+        </section>
 
-    <div id="flipbook"></div>
+        <section class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search magazines by title or year...">
+            <select id="yearFilter">
+                <option value="all">All Years</option>
+            </select>
+        </section>
+
+        <section class="magazines-grid" id="magazinesGrid">
+            <!-- Magazines will be loaded dynamically -->
+        </section>
+
+        <!-- Admin Panel (Password Protected) -->
+        <section class="admin-section">
+            <button id="adminBtn" class="admin-toggle">Admin Panel</button>
+            <div id="adminPanel" class="admin-panel hidden">
+                <div class="admin-login" id="adminLogin">
+                    <h3>Admin Access</h3>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password">
+                    <button onclick="checkAdminPassword()">Login</button>
+                </div>
+                <div class="admin-content hidden" id="adminContent">
+                    <h3>Upload New Magazine</h3>
+                    <form id="uploadForm">
+                        <input type="text" id="magazineTitle" placeholder="Magazine Title" required>
+                        <input type="text" id="magazineYear" placeholder="Year (e.g., 2024)" required>
+                        <input type="text" id="magazineIssue" placeholder="Issue (e.g., Spring, Issue 1)" required>
+                        <textarea id="magazineDescription" placeholder="Brief description" rows="3"></textarea>
+                        <input type="file" id="pdfFile" accept=".pdf" required>
+                        <button type="submit">Upload & Publish</button>
+                    </form>
+                    <div class="upload-status" id="uploadStatus"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>Made for School Use • Free & Responsive</p>
+        <div class="container">
+            <p>&copy; 2024 School Magazine Library. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/magazines-data.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
